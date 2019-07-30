@@ -1,0 +1,219 @@
+/*
+ * background:  #1b1f26
+ * lighter:     #262c35
+ * button:      #303842
+ * lcd-green:   #7ac943
+ * white:       #f2f2f2  
+ */
+
+/* --------------------------------------------------------------------------------
+ * Layout
+ */
+
+ @font-face {
+    font-family: 'Alarm Clock';
+    src: url('../alarm-clock.ttf');
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #1b1f26;
+    color: #f2f2f2;
+    font-family: 'Alarm Clock', 'Courier New', Courier, monospace;
+}
+
+body > main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 2rem;
+    background-color: #1b1f26;
+    color: #f2f2f2;
+    width: 100%;
+}
+
+@media screen and (max-width: 1244px) {
+    body > main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+
+/* --------------------------------------------------------------------------------
+ * Timers
+ */
+ 
+ .time-display {
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-template-rows: 1fr;
+     margin-bottom: 1em;
+ }
+
+ .timer, .timer-background {
+    font-size: 24vw;
+    grid-row: -1 / 1;
+    grid-column: -1 / 1;
+    line-height: 1em;
+ }
+
+ @media screen and (max-width: 1244px) {
+    .timer, .timer-background {
+        font-size: 30vw;
+    }
+}
+
+ .timer {
+    color: #f2f2f2;
+    z-index: 10;
+    filter: drop-shadow(0 0 0.33rem rgba(242, 242, 242, 0.66)) 
+            drop-shadow(0 0 0.66rem rgba(242, 242, 242, 0.33))
+            drop-shadow(0 0 1rem rgba(242, 242, 242, 0.16));
+ }
+
+ .timer.green {
+    color: rgb(122,201,67);
+    filter: drop-shadow(0 0 0.33rem rgba(122,201,67, 0.22)) 
+            drop-shadow(0 0 0.66rem rgba(122,201,67, 0.22))
+            drop-shadow(0 0 1rem rgba(122,201,67, 0.22));
+ }
+
+ .timer.amber {
+    color: rgb(255,147,30);
+    filter: drop-shadow(0 0 0.33rem rgba(255,147,30, 0.22)) 
+            drop-shadow(0 0 0.66rem rgba(255,147,30, 0.22))
+            drop-shadow(0 0 1rem rgba(255,147,30, 0.22));
+ }
+
+ .timer.red {
+     color: rgb(255,29,37);
+    filter: drop-shadow(0 0 0.33rem rgba(255,29,37, 0.22)) 
+            drop-shadow(0 0 0.66rem rgba(255,29,37, 0.22))
+            drop-shadow(0 0 1rem rgba(255,27,37, 0.22));
+ }
+
+.timer-background {
+     color: #262c35;
+     z-index: 0;
+     filter: none'
+ }
+
+ /* --------------------------------------------------------------------------------
+  * Clock
+  */
+
+ .time-display {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.clock, .clock-background {
+   font-size: 34pt;
+   grid-row: -1 / 1;
+   grid-column: -1 / 1;
+   line-height: 1em;
+   text-align: right;
+}
+
+.clock {
+   color: #7ac943;
+   z-index: 10;
+   filter: drop-shadow(0 0 0.33rem rgba(122,201,67, 0.22)) 
+            drop-shadow(0 0 0.66rem rgba(122,201,67, 0.22))
+            drop-shadow(0 0 1rem rgba(122,201,67, 0.22));
+}
+
+.clock-background {
+    color: #303842;
+    z-index: 0;
+}
+
+/* --------------------------------------------------------------------------------
+ * Buttons
+ */
+
+ .dark-btn {
+    background-color: #303842;
+    border: none;
+    color: #f2f2f2;
+    outline: none;
+    padding: 0.33rem 0.33rem 1rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: right;
+    vertical-align: top;
+    font-size: 16pt;
+    text-transform: uppercase;
+}
+
+.dark-btn:hover {
+    background-color: #3a434e;
+    border: none !important;
+}
+
+.dark-btn:active {
+    background-color:rgb(77, 87, 100);
+    border: none !important;
+}
+
+.dark-btn.btn-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.btn-indicator footer {
+    background-color: crimson;
+    border-radius: 100%;
+    height: 5px;
+    width: 5px;
+    filter: drop-shadow(0 0 0.33rem crimson) 
+            drop-shadow(0 0 0.66rem crimson)
+            drop-shadow(0 0 1.22rem crimson);
+}
+
+.btn-indicator footer.green {
+    background-color: #7ac943;
+    filter: drop-shadow(0 0 0.33rem #7ac943) 
+            drop-shadow(0 0 0.66rem #7ac943)
+            drop-shadow(0 0 1.22rem #7ac943);
+}
+
+/* --------------------------------------------------------------------------------
+ * Controls
+ */
+
+ .controls {
+     display:grid;
+     grid-template-rows: repeat(5, 1fr);
+     grid-template-columns: repeat(4, 1fr);
+     grid-gap: 4px;
+     width: 266px;
+     background-color: #262c35;
+     padding: 1rem;
+     border-radius: 4px;
+ }
+
+ @media screen and (max-width: 1244px) {
+    .controls {
+        width: 300px;
+    }
+}
+
+ .controls > header {
+     grid-row: 1 / 1;
+     grid-column: 1 / span 4;
+ }
+
+ .btn-wide {
+     grid-column: auto / span 2;
+ }
+
+ .btn-tall {
+    grid-row: auto / span 2;
+}
