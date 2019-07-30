@@ -5,7 +5,7 @@ A simple JS meeting room timer.
 The timer can be installed simply by moving the files on to your web server. No further installation or build is required.
 
 # Usage
-Using the keypad on the screen, or the keyboard, use the numbers 1 to 9 to set the number of minutes on the timer. Then press Start (or press ```space``` to play/pause the timer.
+Using the keypad on the screen, or the keyboard, use the numbers 1 to 9 to set the number of minutes on the timer. Then press Start (or press ```space```) to play/pause the timer.
 
 You can press a new number at any time to reset the time on the clock without pausing.
 
