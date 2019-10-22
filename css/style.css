@@ -10,17 +10,14 @@
  * Layout
  */
 
- @font-face {
-    font-family: 'Alarm Clock';
-    src: url('../alarm-clock.ttf');
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
 
 html, body {
     width: 100%;
     overflow-x: hidden;
     background-color: #1b1f26;
     color: #f2f2f2;
-    font-family: 'Alarm Clock', 'Courier New', Courier, monospace;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body > main {
@@ -58,6 +55,7 @@ body > main {
     grid-row: -1 / 1;
     grid-column: -1 / 1;
     line-height: 1em;
+    font-weight: 300;
  }
 
  @media screen and (max-width: 1244px) {

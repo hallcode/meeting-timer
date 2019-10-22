@@ -37,6 +37,7 @@ class Timer {
 
     setTime(minutes, addMode) {
         let currentTime = this.time.remaining();
+        let now = this.now().getTime();
 
         if (addMode) {
             this.time.allowance = currentTime + (minutes * 1000) * 60;
@@ -44,11 +45,12 @@ class Timer {
             this.time.allowance = (minutes * 1000) * 60;
         }
 
-        this.time.warn = this.time.allowance * 0.33;
+        // Warn after thirty seconds
+        this.time.warn = (0.5 * 1000) * 60;
 
-        this.time.startTime = this.now().getTime();
+        this.time.startTime = now;
         this.time.remaining = () => {
-            return (this.time.endTime() - this.now().getTime());
+            return (this.time.endTime() - now);
         }
     }
 
@@ -99,7 +101,7 @@ class Timer {
         } else if (currentTime < this.time.warn && currentTime > 1000) {
             newColour = "amber";
         } else {
-            newColour = (this.colourClass == "red"?"amber":"red");
+            newColour = "red";
         }
 
         this.colourClass = newColour;
@@ -107,8 +109,7 @@ class Timer {
 
     view() {
         return m(`article.time-display`, [
-            m(`section.timer.${this.colourClass}`, `${this.time.toString()}`),
-            m('section.timer-background', "ÆÆ:ÆÆ")
+            m(`section.timer.${this.colourClass}`, `${this.time.toString()}`)
         ])
     }
 }

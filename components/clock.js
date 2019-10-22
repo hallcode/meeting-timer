@@ -29,8 +29,7 @@ class Clock {
 
     view() {
         return m(`${this.element}.time-display`, [
-            m("section.clock", `${this.timeString}`),
-            m('section.clock-background', "ÆÆ:ÆÆ:ÆÆ")
+            m("section.clock", `${this.timeString}`)
         ])
     }
 } 
